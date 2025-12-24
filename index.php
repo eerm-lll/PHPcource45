@@ -1,10 +1,11 @@
+<form action="index.php" method="post">
+    <input type="text" name="username">
+    <input type="submit">
+</form>
+
 <?php
-$x = 10;
-$y = 2;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo $_POST["username"];
+}
+?>
 
-$z = $x + $y;
-echo $z . "<br>";
-
-$counter = 0;
-$counter++;
-echo $counter;
