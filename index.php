@@ -1,18 +1,16 @@
 <form method="post">
-    <input type="text" name="country">
-    <input type="submit">
+    <input type="text" name="username">
+    <input type="submit" name="login" value="Login">
 </form>
 
 <?php
-$capitals = array(
-    "USA" => "Washington D.C.",
-    "Japan" => "Kyoto",
-    "India" => "New Delhi"
-);
+if (isset($_POST["login"])) {
+    $username = $_POST["username"];
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $country = $_POST["country"];
-    $capital = $capitals[$country];
-    echo "The capital of {$country} is {$capital}.";
+    if (empty($username)) {
+        echo "Username is missing.";
+    } else {
+        echo "Hello {$username}";
+    }
 }
 ?>
