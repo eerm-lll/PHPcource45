@@ -1,6 +1,13 @@
 <?php
-$i = 0;
-while ($i < 5) {
-    echo $i . "<br>";
-    $i++;
+$foods = array("apple", "orange", "banana", "coconut");
+
+$foods[0] = "pineapple";
+
+array_push($foods, "kiwi");
+array_pop($foods);
+
+foreach ($foods as $food) {
+    echo $food . "<br>";
 }
+
+echo "Number of foods: " . count($foods);
