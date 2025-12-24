@@ -1,17 +1,8 @@
 <?php
-echo "I love pizza<br>";
+$name = "Bro";
+$age = 21;
+$price = 4.99;
+$is_online = false;
 
-// однострочный комментарий
-
-/*
-многострочный
-комментарий
-*/
-?>
-
-<!DOCTYPE html>
-<html>
-<body>
-    <button>Order a pizza</button>
-</body>
-</html>
+echo "Hello {$name}<br>";
+echo "You are {$age} years old<br>";
