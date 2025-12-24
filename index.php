@@ -1,8 +1,14 @@
-<?php
-$number = -5.75;
+<form method="post">
+    <input type="text" name="radius">
+    <input type="submit">
+</form>
 
-echo abs($number) . "<br>";
-echo round($number) . "<br>";
-echo pow(2, 3) . "<br>";
-echo sqrt(16) . "<br>";
-echo rand(1, 100);
+<?php
+if ($_POST) {
+    $r = $_POST["radius"];
+    echo round(2 * pi() * $r, 2) . "<br>";
+    echo round(pi() * pow($r, 2), 2) . "<br>";
+    echo round((4/3) * pi() * pow($r, 3), 2);
+}
+?>
+
