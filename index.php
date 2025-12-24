@@ -1,9 +1,14 @@
 <?php
-$temp = 25;
-$isSunny = true;
+$grade = "B";
 
-if ($temp > 0 && $isSunny) {
-    echo "Good weather";
+switch ($grade) {
+    case "A":
+        echo "Excellent";
+        break;
+    case "B":
+        echo "Good";
+        break;
+    default:
+        echo "Unknown grade";
 }
-
 
