@@ -1,10 +1,9 @@
 <?php
-$age = 25;
+$temp = 25;
+$isSunny = true;
 
-if ($age >= 18) {
-    echo "You may enter";
-} else {
-    echo "Access denied";
+if ($temp > 0 && $isSunny) {
+    echo "Good weather";
 }
 
 
