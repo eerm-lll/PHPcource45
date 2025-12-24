@@ -1,11 +1,8 @@
-<form action="index.php" method="post">
-    <input type="text" name="username">
-    <input type="submit">
-</form>
-
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo $_POST["username"];
-}
-?>
+$number = -5.75;
 
+echo abs($number) . "<br>";
+echo round($number) . "<br>";
+echo pow(2, 3) . "<br>";
+echo sqrt(16) . "<br>";
+echo rand(1, 100);
