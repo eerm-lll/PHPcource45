@@ -1,8 +1,10 @@
 <?php
-$name = "Bro";
-$age = 21;
-$price = 4.99;
-$is_online = false;
+$x = 10;
+$y = 2;
 
-echo "Hello {$name}<br>";
-echo "You are {$age} years old<br>";
+$z = $x + $y;
+echo $z . "<br>";
+
+$counter = 0;
+$counter++;
+echo $counter;
