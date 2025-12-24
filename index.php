@@ -1,16 +1,18 @@
 <form method="post">
-    <input type="text" name="username">
-    <input type="submit" name="login" value="Login">
+    <input type="radio" name="credit_card" value="Visa"> Visa<br>
+    <input type="radio" name="credit_card" value="MasterCard"> MasterCard<br>
+    <input type="radio" name="credit_card" value="American Express"> American Express<br>
+    <input type="submit" name="confirm" value="Confirm">
 </form>
 
 <?php
-if (isset($_POST["login"])) {
-    $username = $_POST["username"];
+if (isset($_POST["confirm"])) {
+    $credit_card = $_POST["credit_card"] ?? null;
 
-    if (empty($username)) {
-        echo "Username is missing.";
+    if ($credit_card != null) {
+        echo "You selected {$credit_card}.";
     } else {
-        echo "Hello {$username}";
+        echo "Please make a selection.";
     }
 }
 ?>
