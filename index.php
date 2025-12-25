@@ -1,11 +1,10 @@
 <?php
-$action_file = htmlspecialchars($_SERVER['PHP_SELF']);
-echo '<form action="' . $action_file . '" method="post">';
-?>
-<!-- форма -->
-<?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    echo 'Form submitted via POST.';
+$password = 'pizza123';
+$hash = password_hash($password, PASSWORD_DEFAULT);
+
+if (password_verify($password, $hash)) {
+    echo 'Password is correct!';
+} else {
+    echo 'Incorrect password.';
 }
 ?>
->
