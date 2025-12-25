@@ -1,34 +1,48 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>FakeBook Register</title>
+</head>
 <body>
-<!-- форма регистрации -->
-<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
     <h2>Welcome to FakeBook</h2>
-    <label>Username</label><br>
-    <input type="text" name="username"><br>
-    <label>Password</label><br>
-    <input type="password" name="password"><br>
-    <input type="submit" name="submit" value="Register">
-</form>
+    
+    <!-- ФОРМА РЕГИСТРАЦИИ -->
+    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+        <label>Username:</label><br>
+        <input type="text" name="username"><br><br>
+        
+        <label>Password:</label><br>
+        <input type="password" name="password"><br><br>
+        
+        <input type="submit" name="submit" value="Register">
+    </form>
 
 <?php
-include 'database.php';
+// ОБРАБОТКА ФОРМЫ
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    include 'database.php';
+    
+    // ФИЛЬТРАЦИЯ ДАННЫХ
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
     
+    // ВАЛИДАЦИЯ
     if (empty($username)) {
-        echo 'Please enter a username.';
+        echo '<p style="color:red;">Please enter a username.</p>';
     } elseif (empty($password)) {
-        echo 'Please enter a password.';
+        echo '<p style="color:red;">Please enter a password.</p>';
     } else {
+        // ХЭШ ПАРОЛЯ
         $hash = password_hash($password, PASSWORD_DEFAULT);
+        
+        // SQL ЗАПРОС
         $sql = "INSERT INTO users (user, password) VALUES ('$username', '$hash')";
+        
         try {
             mysqli_query($conn, $sql);
-            echo 'You are now registered.';
-        } catch (mysqli_sql_exception) {
-            echo 'That username is taken.';
+            echo '<p style="color:green;">You are now registered!</p>';
+        } catch (mysqli_sql_exception $e) {
+            echo '<p style="color:red;">That username is taken.</p>';
         }
         mysqli_close($conn);
     }
