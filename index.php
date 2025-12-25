@@ -1,13 +1,8 @@
-<?php
-$dbserver = 'localhost';
-$dbuser = 'root';
-$dbpass = '';
-$dbname = 'businessdb';
+<?php include 'header.html'; ?>
 
-try {
-    $conn = mysqli_connect($dbserver, $dbuser, $dbpass, $dbname);
-    echo 'You are connected.';
-} catch (mysqli_sql_exception) {
-    echo 'Could not connect.';
-}
-?>
+<main>
+    <h1>Home Page</h1>
+    <p>Welcome to the website.</p>
+</main>
+
+<?php include 'footer.html'; ?>
